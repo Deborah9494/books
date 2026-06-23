@@ -90,6 +90,11 @@
             $data = mod003_addAuthor( $full_name, $summary, $iso3 );
             echo json_encode( $data );
             break;
+        case "deleteAuthor":
+            $author_id = $dataReceived[ "id" ];
+            $data = mod003_deleteAuthor( $author_id );
+            echo json_encode( $data );
+            break;
 
         default:
             echo json_encode( [ "error" => "action probably misspelled." ] );

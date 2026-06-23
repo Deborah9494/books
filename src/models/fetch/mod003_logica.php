@@ -99,3 +99,8 @@
         $query = "INSERT INTO authors (full_name, summary, ISO3) VALUES ('$full_name', '$summary', '$country_iso3')";
         return mod002_writeQuery( $query );
     }
+
+    function mod003_deleteAuthor( $author_id ) {
+        $query = "DELETE FROM authors WHERE `authors`.`author_id` = $author_id";
+        return mod002_writeQuery( $query );
+    }

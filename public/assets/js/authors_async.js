@@ -3,6 +3,54 @@ import js_fetch from './fetch.js';
 import js_render from './render.js';
 import js_utils from './utils.js';
 
+function _deleteAuthor() {
+    console.log("Borrar autor");
+    const nodeForm = document.querySelector(".delete__form");
+    const id = nodeForm.getAttribute("data-id");
+    console.log("ID del autor a borrar: ", id);
+    const handleReturn = (dataResult) => {
+        if (dataResult.status.codError === "000") {
+            console.log(dataResult.data);
+            // Recargar la lista de autores
+            document.querySelector(".authors").remove();
+            _getAuthors();
+        } else {
+            console.error(dataResult);
+        }
+        js_utils.closeOverlay();
+    };
+    const dataRequest = {
+        action: "deleteAuthor",
+        id: id,
+        handler: handleReturn,
+    };
+    js_fetch.apiFetch(dataRequest);
+}
+
+function _showDeleteForm(){
+    const row = this.closest(".row--data");
+    const id = row.getAttribute("data-id");
+    const name = row.querySelector(".cell--name").textContent;
+    const country = row.querySelector(".cell--country").textContent;
+    const summary = row.querySelector(".cell--summary").textContent;
+    console.log("Delete author with id: ", id);
+    console.log("Author details - Name: ", name, ", Country: ", country, ", Summary: ", summary);
+    const data = [{
+        id: id,
+        name: name,
+        country: country,
+        summary: summary
+    }];
+    const html = js_render.render("deleteAuthor", data);
+    document.body.insertAdjacentHTML("beforeend", html);
+
+    const nodeClose = document.querySelector(".overlay__close");
+    nodeClose.addEventListener("click", js_utils.closeOverlay);
+
+    const nodeDelete = document.querySelector(".delete__save");
+    nodeDelete.addEventListener("click", _deleteAuthor);
+}
+
 // Validación
 // Si los campos no son vacío y son diferentes de los actuales, 
 // habilitar el botón de guardar.

@@ -203,7 +203,7 @@ const pagesToRender = {
                     <div class='cell cell--summary'>{summary}</div>
                     <div class='cell cell--actions'>
                         <button class='edit'>Editar</button>
-                        <!--<button class='delete'>Borrar</button>-->
+                        <button class='delete'>Borrar</button>
                     </div>
                 </div>`
      },
@@ -269,6 +269,33 @@ const pagesToRender = {
 
                 <div>
                     <button class="add__save" disabled>Guardar</button>
+                </div>
+            </div>`
+    },
+    "deleteAuthor": {
+        "template": `<div class="overlay delete">
+                            {form}
+                    </div>`,
+        "form": `<div 
+                    data-id="{id}"
+                    class="delete__form delete__form--light"
+                 >
+                    <div class="overlay__header">
+                        <h2>¿Borrar autor?</h2>
+                        <div class="overlay__close">X</div>
+                    </div>
+                    <div>
+                        <input name="name" type="text" class='delete__input form__field' placeholder="nombre del autor" value="{name}" disabled>
+                    </div>
+                    <div>
+                        <input name="country" type="text" class='delete__input form__field' placeholder="país del autor" value="{country}" disabled>
+                    </div>
+                    <div>
+                        <input name="summary" type="textarea" class='delete__input form__field' placeholder="summary" value="{summary}" disabled>
+                    </div>
+                    <div>
+                        <button class="delete__save">Borrar</button>
+                    </div>
                 </div>
             </div>`
     }
