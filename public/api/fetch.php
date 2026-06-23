@@ -83,6 +83,13 @@
             $data = mod003_updateAuthor( $author_id, $full_name, $summary, $iso3 );
             echo json_encode( $data );
             break;
+        case "addAuthor":
+            $full_name = $dataReceived[ "name" ];
+            $summary = $dataReceived[ "summary" ];
+            $iso3 = $dataReceived[ "iso3" ];
+            $data = mod003_addAuthor( $full_name, $summary, $iso3 );
+            echo json_encode( $data );
+            break;
 
         default:
             echo json_encode( [ "error" => "action probably misspelled." ] );

@@ -92,3 +92,10 @@
                     WHERE author_id = $author_id";
         return mod002_writeQuery( $query );
     }
+
+    function mod003_addAuthor( $full_name, $summary, $country_iso3 ) {
+        $full_name = str_replace("'", "\'", $full_name);
+        $summary = str_replace("'", "\'", $summary);
+        $query = "INSERT INTO authors (full_name, summary, ISO3) VALUES ('$full_name', '$summary', '$country_iso3')";
+        return mod002_writeQuery( $query );
+    }

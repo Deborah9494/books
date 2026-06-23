@@ -14,7 +14,7 @@
 }
 
 .edit__form, 
-.insert__form, 
+.add__form, 
 .delete__form {
     display: flex;
     flex-direction: column;
@@ -70,6 +70,13 @@
     font-size: 14px;
     transition: 0.2s;
     font-family: inherit;
+    width: 90%;
+    box-sizing: border-box; /* hace que el padding no aumente el ancho total. */
+}
+
+.edit__textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
 /* .delete__input {
@@ -82,7 +89,7 @@
 }
 
 .edit__save,
-.insert__save,
+.add__save,
 .delete__save {
     padding: 8px 30%;
     border: none;
@@ -94,7 +101,7 @@
 }
 
 .edit__save,
-.insert__save {
+.add__save {
     background: #3498db;
 }
 
@@ -103,7 +110,7 @@
 }
 
 .edit__save:hover,
-.insert__save:hover {
+.add__save:hover {
     background: #2980b9;
     transform: translateY(-1px);
 }
@@ -114,7 +121,7 @@
 }
 
 .edit__save:disabled,
-.insert__save:disabled {
+.add__save:disabled {
     background: #ccc;
     cursor: not-allowed;
 }

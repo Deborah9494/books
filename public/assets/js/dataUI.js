@@ -203,7 +203,7 @@ const pagesToRender = {
                     <div class='cell cell--summary'>{summary}</div>
                     <div class='cell cell--actions'>
                         <button class='edit'>Editar</button>
-                        <button class='delete'>Borrar</button>
+                        <!--<button class='delete'>Borrar</button>-->
                     </div>
                 </div>`
      },
@@ -215,7 +215,13 @@ const pagesToRender = {
         "template": `<div class="overlay edit">
                             {form}
                     </div>`,
-        "form": `<div data-id="{id}" class="edit__form edit__form--light">
+        "form": `<div 
+                    data-id="{id}"
+                    data-original-name="{name}"
+                    data-original-country="{country}"
+                    data-original-summary="{summary}"
+                    class="edit__form edit__form--light"
+                 >
                     <div class="overlay__header">
                         <h2>Editar autor</h2>
                         <div class="overlay__close">X</div>
@@ -232,11 +238,40 @@ const pagesToRender = {
                         <textarea name="summary" class='edit__textarea form__field' placeholder="summary">{summary}</textarea>
                     </div>
                     <div>
-                        <button class="edit__save">Guardar</button>
+                        <button class="edit__save" disabled>Guardar</button>
                     </div>
                 </div>
             </div>`
-     }
+    },
+    "addAuthor": {
+    "template": `<div class="overlay add">
+                    {form}
+                </div>`,
+    "form": `<div class="add__form add__form--light">
+                <div class="overlay__header">
+                    <h2>Añadir autor</h2>
+                    <div class="overlay__close">X</div>
+                </div>
+
+                <div>
+                    <input name="name" type="text" class="add__input form__field" placeholder="nombre del autor">
+                </div>
+
+                <div>
+                    <select name="country" class="add__select form__field">
+                        {optionsCountries}
+                    </select>
+                </div>
+
+                <div>
+                    <textarea name="summary" class="add__textarea form__field" placeholder="summary"></textarea>
+                </div>
+
+                <div>
+                    <button class="add__save" disabled>Guardar</button>
+                </div>
+            </div>`
+    }
 };
 
 export default pagesToRender;
