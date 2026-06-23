@@ -1,0 +1,66 @@
+.authors {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.row {
+    display: grid;
+    text-align: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #3498db;
+    background: white;
+}
+
+.row--header, .row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.row--header {
+    background: #3498db;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+.authors .row {
+    grid-template-columns: 1fr 2fr 2fr 3fr 2fr;
+}
+
+.cell {
+    padding: 2px 2px;
+}
+
+.row--data:hover {
+    background: lightcyan;
+}
+
+.actions {
+    text-align: right;
+}
+
+.actions button.insert {
+    margin-bottom: 7px;
+}
+
+button {
+    padding: 5px 8px;
+    font-weight: bold;
+    color: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.cell.actions {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
