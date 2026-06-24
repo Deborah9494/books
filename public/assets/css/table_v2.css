@@ -3,43 +3,66 @@
     margin: 0 auto;
 }
 
-.row {
+/* .row {
     display: grid;
     text-align: center;
     padding: 10px 12px;
     border-bottom: 1px solid #3498db;
     background: white;
+} */
+
+.authors {
+    width: 80%;
 }
 
-.row--header, .row:last-child {
-    border-bottom: 1px solid black;
+.authors .row {
+    display: grid;
+    grid-template-columns: 60px 2fr 100px 4fr 180px;
+}
+
+.row {
+    background: white;
+    border-bottom: 1px solid #eee;
 }
 
 .row--header {
     background: #3498db;
-    font-weight: bold;
     color: white;
-    font-size: 15px;
+    font-weight: 600;
 }
 
-.authors .row {
-    grid-template-columns: 1fr 2fr 2fr 3fr 2fr;
+.row--header .cell {
+    padding: 8px;
+    font-size: 14px;
+    border-bottom: 1px solid black;
+}
+
+.row--data .cell {
+    padding: 4px;
+    font-size: 12px;
 }
 
 .cell {
-    padding: 2px 2px;
+    text-align: left;
+    border-left: 2px solid white;
 }
 
 .row--data:hover {
-    background: lightcyan;
+    background-color: #e2edf8;
+}
+
+.row:last-child {
+    border-bottom: 1px solid black;
 }
 
 .actions {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 7px;
 }
 
-.actions button.insert {
-    margin-bottom: 7px;
+.cell--actions {
+    text-align: center;
 }
 
 button {
