@@ -137,3 +137,38 @@
             "data" => $user
         ];
     }
+
+    function mod003_registration($username, $user_email, $user_password, $datebirth, $iso3){
+
+    $username = str_replace("'", "\\'", $username);
+    $user_email = str_replace("'", "\\'", $user_email);
+
+    $user_password = password_hash($user_password, PASSWORD_BCRYPT);
+
+    $query = "
+        INSERT INTO users
+        (
+            user_id,
+            username,
+            email,
+            user_password,
+            date_birth,
+            created_at,
+            active,
+            ISO3
+        )
+        VALUES
+        (
+            NULL,
+            '$username',
+            '$user_email',
+            '$user_password',
+            '$datebirth',
+            CURRENT_TIMESTAMP(),
+            1,
+            '$iso3'
+        )
+    ";
+
+    return mod002_writeQuery($query);
+}

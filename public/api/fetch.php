@@ -118,7 +118,18 @@
                 "data" => $_SESSION["user"] ?? null
             ]);
             break;
-
+        
+        case "userRegistration":
+            $data = mod003_registration(
+                $dataReceived["username"],
+                $dataReceived["user_email"],
+                $dataReceived["user_password"],
+                $dataReceived["datebirth"],
+                $dataReceived["iso3"]
+            );
+            echo json_encode($data);
+            break;
+    
         default:
             echo json_encode( [ "error" => "action probably misspelled." ] );
     }

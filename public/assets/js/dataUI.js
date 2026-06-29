@@ -312,6 +312,7 @@ const pagesToRender = {
                 <input type="email" class="login_email" placeholder="Email">
                 <input type="password" class="login_password" placeholder="Password">
                 <button class="login_btn">Login</button>
+                <a href="register.php">Registrarse</a>
             </div>
         `
     },
@@ -329,6 +330,35 @@ const pagesToRender = {
                 <a href="profile.php">Profile</a>
                 <button class="logout_btn">Logout</button>
             </div>
+        `
+    },
+
+    "registrationForm": {
+        "template": `
+                    {form}
+        `,
+        "form": `
+                <h2>Register</h2>
+
+                <div>
+                <input type="text" class="reg_username form__field" placeholder="Username">
+                </div>
+                <div>
+                <input type="email" class="reg_email form__field" placeholder="Email">
+                </div>
+                <div>
+                <input type="password" class="reg_password form__field" placeholder="Password">
+                </div>
+                <div>
+                <input type="text" class="reg_date form__field" placeholder="Birth date">
+                </div>
+                <div>
+                    <select name="country" class="reg_select form__field">
+                        {optionsCountries}
+                    </select>
+                </div>
+    
+                <button class="reg_btn">Create account</button>
         `
     }
 };
