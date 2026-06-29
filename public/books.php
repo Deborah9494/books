@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	// books.php
 	require "../src/models/books/mod004_presentacion.php";
 

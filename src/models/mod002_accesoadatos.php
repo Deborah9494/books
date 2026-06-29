@@ -332,6 +332,29 @@
 						`country_name`
 					FROM `countries`
 					ORDER BY `iso3`"
+			],
+			"login" => [
+				"attributes" => [
+					[ "user_id", "user_id"],
+					[ "username", "username"],
+					[ "email", "email" ],
+					[ "user_password", "password" ],
+					[ "date_birth", "date_birth" ],
+					[ "created_at", "created_at" ],
+					[ "active", "active" ],
+					[ "ISO3", "ISO3" ],
+				],
+				"strSQL" => "SELECT 
+						`users`.`user_id`, 
+						`users`.`username`, 
+						`users`.`email`, 
+						`users`.`user_password`, 
+						`users`.`date_birth`, 
+						`users`.`created_at`, 
+						`users`.`active`, 
+						`users`.`ISO3` 
+						FROM `users` 
+						WHERE `users`.`email` = '{email}'"
 			]
 		];
 

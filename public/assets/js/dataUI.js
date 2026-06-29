@@ -298,6 +298,38 @@ const pagesToRender = {
                     </div>
                 </div>
             </div>`
+    },
+    "authLogin": {
+        "template": `
+            <div class="auth_dropdown">
+                {box}
+            </div>
+        `,
+        "box": `
+            <button class="auth_toggle">Login</button>
+
+            <div class="auth_menu">
+                <input type="email" class="login_email" placeholder="Email">
+                <input type="password" class="login_password" placeholder="Password">
+                <button class="login_btn">Login</button>
+            </div>
+        `
+    },
+
+    "authUser": {
+        "template": `
+            <div class="auth_dropdown">
+                {box}
+            </div>
+        `,
+        "box": `
+            <button class="auth_toggle">{name}</button>
+
+            <div class="auth_menu">
+                <a href="profile.php">Profile</a>
+                <button class="logout_btn">Logout</button>
+            </div>
+        `
     }
 };
 

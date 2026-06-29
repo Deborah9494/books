@@ -1,4 +1,5 @@
 <?php
+    session_start();
     /* fetch.php */
     require_once '../../src/models/fetch/mod003_logica.php';
 
@@ -94,6 +95,28 @@
             $author_id = $dataReceived[ "id" ];
             $data = mod003_deleteAuthor( $author_id );
             echo json_encode( $data );
+            break;
+
+        case "login":
+            $data = mod003_login(
+                $dataReceived["email"],
+                $dataReceived["password"]
+            );
+            echo json_encode($data);
+            break;
+
+        case "logout":
+            session_destroy();
+            echo json_encode([
+                "status" => ["codError" => "000"]
+            ]);
+            break;
+
+        case "getSession":
+            echo json_encode([
+                "status" => ["codError" => "000"],
+                "data" => $_SESSION["user"] ?? null
+            ]);
             break;
 
         default:

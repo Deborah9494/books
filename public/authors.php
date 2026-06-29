@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	// authors.php
 	require "../src/models/authors/mod004_presentacion.php";
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2026 a las 12:36:37
+-- Tiempo de generación: 29-06-2026 a las 16:25:26
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `books_v2`
+-- Base de datos: `books_v3`
 --
 
 -- --------------------------------------------------------
@@ -341,7 +341,6 @@ INSERT INTO `books_genres` (`book_id`, `genre_id`) VALUES
 (38, 15),
 (39, 8),
 (39, 10),
-(39, 16),
 (40, 8),
 (40, 10),
 (40, 11),
@@ -870,12 +869,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `user_password`, `date_birth`, `created_at`, `active`, `ISO3`) VALUES
-(1, 'alice_reader', 'alice@example.com', 'hashed_pw_1', '1995-04-12', '2026-04-16 08:09:56', 1, 'ESP'),
-(2, 'bookworm_john', 'john@example.com', 'hashed_pw_2', '1990-09-23', '2026-04-16 08:09:56', 1, 'USA'),
-(3, 'fantasy_lover', 'emma@example.com', 'hashed_pw_3', '1998-01-05', '2026-04-16 08:09:56', 1, 'GBR'),
-(4, 'history_buff', 'li@example.com', 'hashed_pw_4', '1985-07-19', '2026-04-16 08:09:56', 1, 'CHN'),
-(5, 'mystery_guy', 'carlos@example.com', 'hashed_pw_5', '1992-11-30', '2026-04-16 08:09:56', 1, 'MEX'),
-(6, 'debora_iori', 'dedebobo@example.com', 'hashed_pw_6', '1994-04-16', '2026-04-16 08:09:56', 1, 'ITA');
+(1, 'alice_reader', 'alice@example.com', '$2y$10$esHj2KwpEVU0rKhzBI3whumjdJFJ/2roOs.ymmLqYT0Hi8bBLE6zi', '1995-04-12', '2026-06-29 13:43:38', 1, 'ESP'),
+(2, 'bookworm_john', 'john@example.com', '$2y$10$esHj2KwpEVU0rKhzBI3whumjdJFJ/2roOs.ymmLqYT0Hi8bBLE6zi', '1990-09-23', '2026-06-29 13:43:43', 1, 'USA'),
+(3, 'fantasy_lover', 'emma@example.com', '$2y$10$esHj2KwpEVU0rKhzBI3whumjdJFJ/2roOs.ymmLqYT0Hi8bBLE6zi', '1998-01-05', '2026-06-29 13:43:47', 1, 'GBR'),
+(4, 'history_buff', 'li@example.com', '$2y$10$esHj2KwpEVU0rKhzBI3whumjdJFJ/2roOs.ymmLqYT0Hi8bBLE6zi', '1985-07-19', '2026-06-29 13:43:50', 1, 'CHN'),
+(5, 'mystery_guy', 'carlos@example.com', '$2y$10$esHj2KwpEVU0rKhzBI3whumjdJFJ/2roOs.ymmLqYT0Hi8bBLE6zi', '1992-11-30', '2026-06-29 13:43:53', 1, 'MEX'),
+(6, 'debora_iori', 'dedebobo@example.com', '$2y$10$5QO2Fr0IBuDjDjNZ1f5a2OgDtrIWahCjMPrWojUV6RyB62wO5lgIy', '1994-04-16', '2026-06-29 13:38:22', 1, 'ITA');
 
 -- --------------------------------------------------------
 
@@ -1280,7 +1279,7 @@ ALTER TABLE `users_reviews_comments`
 -- AUTO_INCREMENT de la tabla `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `author_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `author_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `books`
@@ -1292,7 +1291,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT de la tabla `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `genre_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `genre_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `series`

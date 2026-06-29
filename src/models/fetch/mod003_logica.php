@@ -104,3 +104,36 @@
         $query = "DELETE FROM authors WHERE `authors`.`author_id` = $author_id";
         return mod002_writeQuery( $query );
     }
+
+    function mod003_login($email, $password) {
+        $data = mod002_getData("login", [
+            "email" => $email
+        ]);
+        if ($data["status"]["codError"] !== "000") {
+            return $data;
+        }
+        $user = $data["data"][0];
+        $hash = $user["password"];
+        if (!password_verify($password, $hash)) {
+            return [
+                "status" => [
+                    "codError" => "010",
+                    "msgError" => "Email o contraseña incorrectos."
+                ]
+            ];
+        }
+        // STORE SESSION HERE
+        $_SESSION["user"] = [
+            "user_id" => $user["user_id"],
+            "username" => $user["username"],
+            "email" => $user["email"],
+            "date_birth" => $user["date_birth"],
+            "created_at" => $user["created_at"],
+            "ISO3" => $user["ISO3"]
+        ];
+        unset($user["password"]);
+        return [
+            "status" => ["codError" => "000"],
+            "data" => $user
+        ];
+    }
