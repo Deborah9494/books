@@ -276,6 +276,18 @@ function _showInsertForm() {
     console.log( "Borrar autor con id: ", id );
 } */
 
+function _filterAuthors(event) {
+    const text = event.target.value.toLowerCase().trim();
+    const rows = document.querySelectorAll(".row--data");
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (rowText.includes(text)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
 
 // VIEW ALL
 function  _getAuthors() {
@@ -292,6 +304,9 @@ function  _getAuthors() {
 
             const nodeInsert = document.querySelector("button.insert");
             nodeInsert.addEventListener("click", _showInsertForm );
+
+            const search = document.querySelector(".authors_search");
+            search.addEventListener("input", _filterAuthors);
 
             const nodesDelete = document.querySelectorAll("button.delete");
             nodesDelete.forEach( node => {

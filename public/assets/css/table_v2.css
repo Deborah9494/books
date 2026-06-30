@@ -34,7 +34,7 @@
 .row--header .cell {
     padding: 8px;
     font-size: 14px;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #eee;
 }
 
 .row--data .cell {
@@ -52,13 +52,74 @@
 }
 
 .row:last-child {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #eee;
 }
 
-.actions {
+/* .actions {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 7px;
+}
+
+.authors_search {
+    padding: 8px;
+    border: 1px solid #d9e2ec;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+    font-family: inherit;
+    width: 90%;
+    box-sizing: border-box; 
+}
+
+.authors_search:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px #eaf4fb;
+} */
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 20px;
+}
+
+.actions > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.actions label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5a6a7a;
+    white-space: nowrap;
+}
+
+.authors_search {
+    width: 100%;
+    max-width: 320px;
+    padding: 8px 12px;
+    border: 1px solid #d9e2ec;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: .2s;
+    box-sizing: border-box;
+}
+
+.authors_search:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52,152,219,.15);
+}
+
+.actions button.insert {
+    padding: 8px 14px;
 }
 
 .cell--actions {

@@ -185,7 +185,16 @@ const pagesToRender = {
     "authors":{
         "template": `<div class="authors">
                         <div class="actions">
-                            <button class="insert">Añadir autor</button>
+                            <div>
+                                <label for="authors_search">Buscar: </label>
+                                <input
+                                    type="text"
+                                    class="authors_search"
+                                >
+                            </div>
+                            <div>
+                                <button class="insert">Añadir autor</button>
+                            </div>
                         </div>
                         <div class="row row--header">
                             <div class="cell cell--id">Id</div>
