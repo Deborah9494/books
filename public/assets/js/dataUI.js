@@ -1,24 +1,33 @@
 // dataUI.js
 const pagesToRender = { 
     "genres" : {
-    "template" :    `<div class='genres'>
-                        <div class='genres__actions'>
-                            <button class='genres__insert'>Añadir género</button>
+    "template" :    `<div class='table genres table--3cols'>
+                        <div class='actions genres__actions'>
+                            <div>
+                                <label for="table_search">Buscar: </label>
+                                <input
+                                    type="text"
+                                    class="table_search"
+                                >
+                            </div>
+                            <div>
+                                <button class='insert genres__insert'>➕ Añadir género</button>
+                            </div>
                         </div>
-                        <div class='genres__row genres__row--header'>
-                            <div class='genres__cell'>Id</div>
-                            <div class='genres__cell'>Nombre</div>
-                            <div class='genres__cell'>Acciones</div>
+                        <div class='row row--header genres__row genres__row--header'>
+                            <div class='cell genres__cell'>Id</div>
+                            <div class='cell genres__cell'>Nombre</div>
+                            <div class='cell cell--actions genres__cell'>Acciones</div>
                         </div>
                         {dataGenres}
                     </div>`,
-    "dataGenres":   `<div data-genreid='{genreId}' class='genres__row genres__row--data'>
-                        <div class='genres__cell genres__cell--id'>{genreId}</div>
-                        <div class='genres__cell genres__cell--name'>{genreName}</div>
-                        <div class='genres__cell genres__cell--actions'>
-                            <button class='genres__edit'>Editar</button>
-                            <button class='genres__delete'>Borrar</button>
-                            <button class='genres__show_books'>Ver Libros</button>
+    "dataGenres":   `<div data-genreid='{genreId}' class='row row--data genres__row genres__row--data'>
+                        <div class='cell genres__cell genres__cell--id'>{genreId}</div>
+                        <div class='cell genres__cell genres__cell--name'>{genreName}</div>
+                        <div class='cell cell--actions genres__cell genres__cell--actions'>
+                            <button class='edit genres__edit' title='Editar'>✏️</button>
+                            <button class='delete genres__delete' title='Borrar'>🗑️</button>
+                            <button class='genres__show_books' title='Ver Libros'>📚</button>
                         </div>     
                     </div>`,
     },
@@ -58,13 +67,13 @@ const pagesToRender = {
     },
     "genreRow" : {
         "template": `{dataGenre}`,
-        "dataGenre": `<div data-genreid='{genreId}' class='genres__row genres__row--data'>
-                        <div class='genres__cell genres__cell--id'>{genreId}</div>
-                        <div class='genres__cell genres__cell--name'>{genreName}</div>
-                        <div class='genres__cell genres__cell--actions'>
-                            <button class='genres__edit'>Editar</button>
-                            <button class='genres__delete'>Borrar</button>
-                            <button class='genres__show_books'>Ver Libros</button>
+        "dataGenre": `<div data-genreid='{genreId}' class='row row--data genres__row genres__row--data'>
+                        <div class='cell genres__cell genres__cell--id'>{genreId}</div>
+                        <div class='cell genres__cell genres__cell--name'>{genreName}</div>
+                        <div class='cell cell--actions genres__cell genres__cell--actions'>
+                            <button class='edit genres__edit' title='Editar'>✏️</button>
+                            <button class='delete genres__delete' title='Borrar'>🗑️</button>
+                            <button class='genres__show_books' title='Ver Libros'>📚</button>
                         </div> 
                     </div>`
     },
@@ -183,17 +192,17 @@ const pagesToRender = {
         "dataBooks" :  `{dataBooks}`
     },
     "authors":{
-        "template": `<div class="authors">
+        "template": `<div class="table table--5cols">
                         <div class="actions">
                             <div>
-                                <label for="authors_search">Buscar: </label>
+                                <label for="table_search">Buscar: </label>
                                 <input
                                     type="text"
-                                    class="authors_search"
+                                    class="table_search"
                                 >
                             </div>
                             <div>
-                                <button class="insert">Añadir autor</button>
+                                <button class="insert">➕ Añadir autor</button>
                             </div>
                         </div>
                         <div class="row row--header">
@@ -211,8 +220,8 @@ const pagesToRender = {
                     <div class='cell cell--country'>{country}</div>
                     <div class='cell cell--summary'>{summary}</div>
                     <div class='cell cell--actions'>
-                        <button class='edit'>Editar</button>
-                        <button class='delete'>Borrar</button>
+                        <button class='edit' title='Editar'>✏️</button>
+                        <button class='delete' title='Borrar'>🗑️</button>
                     </div>
                 </div>`
      },

@@ -12,7 +12,7 @@ function _deleteAuthor() {
         if (dataResult.status.codError === "000") {
             console.log(dataResult.data);
             // Recargar la lista de autores
-            document.querySelector(".authors").remove();
+            document.querySelector(".table").remove();
             _getAuthors();
         } else {
             console.error(dataResult);
@@ -103,7 +103,7 @@ function _updateAuthor() {
         if ( dataResult.status.codError === "000" ) {
             console.log( dataResult.data );
             // Recargar la lista de autores
-            document.querySelector(".authors").remove();
+            document.querySelector(".table").remove();
             _getAuthors();
         } else {
             console.error( dataResult );
@@ -200,7 +200,7 @@ function _addAuthor(){
         if ( dataResult.status.codError === "000" ) {
             console.log( dataResult.data );
             // Recargar la lista de autores
-            document.querySelector(".authors").remove();
+            document.querySelector(".table").remove();
             _getAuthors();
         } else {
             console.error( dataResult );
@@ -270,25 +270,6 @@ function _showInsertForm() {
     });
 }
 
-/* function _showDeleteForm() {
-    const nodeRow = this.closest(".row--data");
-    const id = nodeRow.dataset.id;
-    console.log( "Borrar autor con id: ", id );
-} */
-
-function _filterAuthors(event) {
-    const text = event.target.value.toLowerCase().trim();
-    const rows = document.querySelectorAll(".row--data");
-    rows.forEach(row => {
-        const rowText = row.textContent.toLowerCase();
-        if (rowText.includes(text)) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
-    });
-}
-
 // VIEW ALL
 function  _getAuthors() {
     const handleReturn = ( dataResult ) => {
@@ -305,8 +286,8 @@ function  _getAuthors() {
             const nodeInsert = document.querySelector("button.insert");
             nodeInsert.addEventListener("click", _showInsertForm );
 
-            const search = document.querySelector(".authors_search");
-            search.addEventListener("input", _filterAuthors);
+            const search = document.querySelector(".table_search");
+            search.addEventListener("input", js_utils.filterTable);
 
             const nodesDelete = document.querySelectorAll("button.delete");
             nodesDelete.forEach( node => {

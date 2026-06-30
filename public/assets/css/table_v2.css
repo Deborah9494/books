@@ -1,83 +1,58 @@
-.authors {
+/* ===== table_v2.css ===== */
+.table {
     width: 80%;
     margin: 0 auto;
 }
 
-/* .row {
-    display: grid;
-    text-align: center;
-    padding: 10px 12px;
-    border-bottom: 1px solid #3498db;
-    background: white;
-} */
-
-.authors {
-    width: 80%;
-}
-
-.authors .row {
+/* ===== GRID ===== */
+.table--5cols .row {
     display: grid;
     grid-template-columns: 60px 2fr 100px 4fr 180px;
 }
 
-.row {
+.table--3cols .row {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+}
+
+.table .row {
     background: white;
     border-bottom: 1px solid #eee;
 }
 
-.row--header {
+/* HEADER */
+.row--header .cell {
+    padding: 8px;
+    font-size: 14px;
+    border-bottom: 2px solid #eee;
     background: #3498db;
     color: white;
     font-weight: 600;
 }
 
-.row--header .cell {
-    padding: 8px;
-    font-size: 14px;
-    border-bottom: 2px solid #eee;
-}
-
+/* DATA CELLS */
 .row--data .cell {
-    padding: 4px;
+    padding: 6px 8px;
     font-size: 12px;
 }
 
+/* BASE CELL */
 .cell {
     text-align: left;
     border-left: 2px solid white;
 }
 
+/* hover row */
 .row--data:hover {
     background-color: #e2edf8;
 }
 
+/* last row border */
 .row:last-child {
     border-bottom: 2px solid #eee;
 }
 
-/* .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 7px;
-}
-
-.authors_search {
-    padding: 8px;
-    border: 1px solid #d9e2ec;
-    border-radius: 6px;
-    outline: none;
-    font-size: 14px;
-    transition: 0.2s;
-    font-family: inherit;
-    width: 90%;
-    box-sizing: border-box; 
-}
-
-.authors_search:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px #eaf4fb;
-} */
-
+/* ===== ACTION BAR ===== */
 .actions {
     display: flex;
     justify-content: space-between;
@@ -100,7 +75,8 @@
     white-space: nowrap;
 }
 
-.authors_search {
+/* SEARCH */
+.table_search {
     width: 100%;
     max-width: 320px;
     padding: 8px 12px;
@@ -108,43 +84,72 @@
     border-radius: 6px;
     font-size: 14px;
     font-family: inherit;
-    transition: .2s;
+    transition: 0.2s;
     box-sizing: border-box;
 }
 
-.authors_search:focus {
+.table_search:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 0 3px rgba(52,152,219,.15);
 }
 
+/* INSERT BUTTON */
 .actions button.insert {
     padding: 8px 14px;
 }
 
-.cell--actions {
-    text-align: center;
-}
-
+/* ===== GLOBAL BUTTON (SAFE VERSION) ===== */
 button {
-    padding: 5px 8px;
     font-weight: bold;
     color: #3498db;
-    border: 1px solid #3498db;
+    border: 1px solid #d9e2ec;
     border-radius: 5px;
     background: white;
     cursor: pointer;
     font-size: 13px;
-    margin-right: 5px;
     transition: 0.2s;
 }
 
-button:hover {
-    transform: scale(1.05);
+/* ONLY for non-icon buttons */
+.actions button:hover {
+    transform: scale(1.03);
 }
 
-.cell.actions {
+/* ===== ACTION ICON CELL ===== */
+.cell--actions {
     display: flex;
-    gap: 6px;
     justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ICON BUTTONS */
+.cell--actions button {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    font-size: 16px;
+
+    border: 1px solid #d9e2ec;
+    border-radius: 6px;
+    background: white;
+}
+
+/* ICON HOVER */
+.cell--actions button:hover {
+    background: #f5fbff;
+    border-color: #3498db;
+    transform: scale(1.1);
+}
+
+/* DELETE SPECIAL HOVER */
+.cell--actions .delete:hover {
+    background: #fff2f2;
+    border-color: #e74c3c;
 }

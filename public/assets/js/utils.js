@@ -32,6 +32,18 @@ const js_utils = {
         if ( nodeOverlay ) {
             nodeOverlay.remove();
         }
+    },
+    filterTable(event) {
+        const text = event.target.value.toLowerCase().trim();
+        const rows = document.querySelectorAll(".row--data");
+        rows.forEach(row => {
+            const rowText = row.textContent.toLowerCase();
+            if (rowText.includes(text)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
     }
 }
 

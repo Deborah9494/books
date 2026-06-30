@@ -1,5 +1,7 @@
+// genres.js
 import js_fetch from './fetch.js';
 import js_render from './render.js';
+import js_utils from './utils.js';
 
 function _closeOverlay() {
     const nodeOverlay = document.querySelector(".overlay");
@@ -417,6 +419,9 @@ function _getGenres() {
             nodesShowBooks.forEach( node => {
                 node.addEventListener("click", _showOverlayGenreBooks );
             }); 
+
+            const search = document.querySelector(".table_search");
+            search.addEventListener("input", js_utils.filterTable);
             
             } else {
                 console.error( "Error al cargar todos los géneros." );

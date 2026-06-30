@@ -8,6 +8,7 @@
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="../public/assets/css/style.css">
         <link rel="stylesheet" href="assets/css/overlay.css">
+		<link rel="stylesheet" href="../public/assets/css/table_v2.css">
         <script type='module' src='assets/js/genres.js'></script>
 		
 	</head>
